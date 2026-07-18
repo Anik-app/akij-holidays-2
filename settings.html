@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="theme.css">
 <style>
+  /* (same styles as before) */
   .settings-grid { display: grid; grid-template-columns: 1fr; gap: 22px; max-width: 900px; }
   .setting-card {
     background: var(--surface);
@@ -93,13 +94,14 @@
             with access limited to that repo and <em>Contents: Read and write</em>.</li>
           <li>Paste the values below and click <strong>Save &amp; Test</strong>.</li>
         </ol>
+        <p style="margin-top:8px; color:var(--danger); font-weight:500;">🔒 For security, the token is <strong>not</strong> hardcoded. Paste it once; it will be stored safely in your browser.</p>
       </div>
 
-      <div class="fld"><label for="ghOwner">Owner (user or organization)</label><input id="ghOwner" placeholder="e.g., Anik-app" autocomplete="off"/></div>
-      <div class="fld"><label for="ghRepo">Repository name</label><input id="ghRepo" placeholder="e.g., akij-holidays" autocomplete="off"/></div>
-      <div class="fld"><label for="ghBranch">Branch</label><input id="ghBranch" placeholder="main" autocomplete="off"/></div>
-      <div class="fld"><label for="ghBase">Base folder</label><input id="ghBase" placeholder="Documents" autocomplete="off"/></div>
-      <div class="fld mono"><label for="ghToken">Personal access token</label><input id="ghToken" type="password" placeholder="github_pat_…" autocomplete="off"/></div>
+      <div class="fld"><label for="ghOwner">Owner (user or organization)</label><input id="ghOwner" value="Anik-app" placeholder="e.g., Anik-app" autocomplete="off"/></div>
+      <div class="fld"><label for="ghRepo">Repository name</label><input id="ghRepo" value="akij-holidays" placeholder="e.g., akij-holidays" autocomplete="off"/></div>
+      <div class="fld"><label for="ghBranch">Branch</label><input id="ghBranch" value="main" placeholder="main" autocomplete="off"/></div>
+      <div class="fld"><label for="ghBase">Base folder</label><input id="ghBase" value="Documents" placeholder="Documents" autocomplete="off"/></div>
+      <div class="fld mono"><label for="ghToken">Personal access token</label><input id="ghToken" type="password" placeholder="Paste your token here" autocomplete="off"/></div>
 
       <div class="actions">
         <button class="btn btn-primary" id="ghSaveBtn" type="button">💾 Save &amp; Test</button>
@@ -149,15 +151,6 @@ AkijApp.mountShell({ active: "settings", title: "Settings", crumb: "Cloud & Conf
 const { CFG, GitHub, Sheets, Store, Toast, safeLocalStorage } = AkijApp;
 const $ = id => document.getElementById(id);
 
-// Default credentials for GitHub (pre-filled)
-const DEFAULT_GH_CREDS = {
-  owner: "Anik-app",
-  repo: "akij-holidays",
-  branch: "main",
-  basePath: "Documents",
-  token: "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"
-};
-
 function setStatus(t, kind) {
   const s = $("statusText");
   s.className = "status" + (kind === "working" ? " working" : kind === "error" ? " error" : "");
@@ -166,16 +159,12 @@ function setStatus(t, kind) {
 
 /* ========== GitHub ========== */
 function loadGitHubForm() {
-  const stored = GitHub.creds() || {};
-  // Use stored credentials if they exist, otherwise fall back to defaults
-  const hasStored = Object.keys(stored).some(k => stored[k]);
-  const c = hasStored ? stored : DEFAULT_GH_CREDS;
-
-  $("ghOwner").value  = c.owner    || "";
-  $("ghRepo").value   = c.repo     || "";
+  const c = GitHub.creds() || {};
+  $("ghOwner").value  = c.owner    || "Anik-app";
+  $("ghRepo").value   = c.repo     || "akij-holidays";
   $("ghBranch").value = c.branch   || "main";
   $("ghBase").value   = c.basePath || "Documents";
-  // Token handling: mask it and store actual in dataset
+  // Token: if stored, mask it; otherwise leave empty
   if (c.token) {
     $("ghToken").value = "••••••••••••••••••••••••";
     $("ghToken").dataset.mask = c.token;
@@ -196,7 +185,6 @@ async function refreshGithubStatus() {
 }
 
 $("ghSaveBtn").addEventListener("click", async () => {
-  // If token field still shows the masked value, keep the existing token
   const maskedShown = $("ghToken").value.startsWith("•");
   const token = maskedShown ? ($("ghToken").dataset.mask || "") : $("ghToken").value.trim();
   const creds = {
@@ -260,7 +248,6 @@ $("gsSaveBtn").addEventListener("click", () => {
     Toast.show("That doesn't look like a valid /exec URL", "error"); return;
   }
   safeLocalStorage.set("akij.sheets.url", url);
-  // Also patch runtime CFG so Sheets.log() picks it up immediately.
   window.APP_CONFIG.APPS_SCRIPT_URL = url;
   refreshSheetsStatus();
   Toast.show("Sheets logger saved", "success");
