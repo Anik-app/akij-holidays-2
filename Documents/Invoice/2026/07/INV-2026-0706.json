@@ -1,0 +1,45 @@
+{
+  "id": "invoice_mrqdm5zx_g2jbtb",
+  "type": "invoice",
+  "number": "INV-2026-0706",
+  "currency": "BDT",
+  "invoiceDate": "2026-07-18",
+  "dueDate": "2026-07-25",
+  "status": "",
+  "headerAddress": "",
+  "headerPhone": "",
+  "headerEmail": "",
+  "headerWebsite": "",
+  "clientName": "ghjkhgfghjk",
+  "clientCompany": "njkbkbkhbhbhk",
+  "clientAddress": "bhhbhjhvjvjh",
+  "clientCity": "",
+  "clientEmail": "",
+  "clientPhone": "",
+  "items": [
+    {
+      "description": "kjhgfdfghjkhfdfgh",
+      "quantity": 1,
+      "rate": 456650,
+      "amount": 456650
+    }
+  ],
+  "subtotal": 456650,
+  "taxRate": 0,
+  "taxAmount": 0,
+  "discount": 0,
+  "shipping": 0,
+  "total": 456650,
+  "banks": [
+    {
+      "bankName": "",
+      "accountName": "AKIJ LOGISTICS LTD",
+      "accountNumber": "2063890780001",
+      "branchName": "Gulshan",
+      "routingNumber": "060261726"
+    }
+  ],
+  "notes": "dfghjklkjhgfddfghj",
+  "createdAt": "2026-07-18T13:02:02.973Z",
+  "updatedAt": "2026-07-18T18:52:49.538Z"
+}
