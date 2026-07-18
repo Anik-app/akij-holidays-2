@@ -1,0 +1,43 @@
+{
+  "id": "voucher_mrq6xbu7_3lkyki",
+  "type": "voucher",
+  "number": "BK-2026-0703",
+  "bookingDate": "2026-07-18",
+  "service": "",
+  "bookingStatus": "Confirmed",
+  "headerEmail": "holidays@akijair.com",
+  "headerWebsite": "www.akijair.com",
+  "guestName": "fghjkjhgf",
+  "guestPhone": "",
+  "guestEmail": "",
+  "additionalGuests": [],
+  "adults": 1,
+  "children": 0,
+  "infants": 0,
+  "arrival": "2026-07-18",
+  "departure": "2026-07-20",
+  "nights": 2,
+  "rooms": 1,
+  "roomCategory": "",
+  "mealPlan": "",
+  "hotels": [
+    {
+      "name": "hhjhghgkx",
+      "city": "xghjhgjgxhjxjhxhj",
+      "country": "",
+      "address": "",
+      "stars": 0,
+      "confirmation": "dfsdgfdsg",
+      "rooms": "2sxsc",
+      "roomType": "dlx",
+      "mealPlan": "Bed & Breakfast (BB)",
+      "checkIn": "",
+      "checkOut": "",
+      "phone": ""
+    }
+  ],
+  "note": "",
+  "terms": "",
+  "createdAt": "2026-07-18T09:54:46.447Z",
+  "updatedAt": "2026-07-18T09:55:04.530Z"
+}
