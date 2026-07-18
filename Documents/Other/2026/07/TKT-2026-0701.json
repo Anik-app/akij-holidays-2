@@ -1,0 +1,60 @@
+{
+  "id": "ticket_mrqni327_yu45uk",
+  "type": "ticket",
+  "number": "TKT-2026-0701",
+  "headerAddress": "Cosy Nook, House 10, Road 4, Gulshan 1, Dhaka, Bangladesh",
+  "headerPhone": "+880 9613 500850",
+  "headerEmail": "holidays@akijair.com",
+  "headerWebsite": "www.akijair.com",
+  "pnr": "JBHKBKHBKB",
+  "ticketNumber": "54345678",
+  "bookingRef": "",
+  "status": "Confirmed",
+  "airline": {
+    "iata": "XY",
+    "icao": "KNE",
+    "name": "flynas",
+    "country": "Saudi Arabia"
+  },
+  "flightNumber": "jjj",
+  "class": "Economy",
+  "cabin": "Y — Economy",
+  "fareBasis": "hjkjjji",
+  "baggage": "",
+  "meal": "Standard",
+  "departure": {
+    "iata": "FRA",
+    "icao": "EDDF",
+    "name": "Frankfurt Airport",
+    "city": "Frankfurt",
+    "country": "Germany"
+  },
+  "departDate": "2026-07-21",
+  "departTime": "",
+  "departTerminal": "",
+  "departGate": "",
+  "arrival": {
+    "iata": "CDG",
+    "icao": "LFPG",
+    "name": "Paris Charles de Gaulle Airport",
+    "city": "Paris",
+    "country": "France"
+  },
+  "arriveDate": "",
+  "arriveTime": "",
+  "arriveTerminal": "",
+  "passengers": [
+    {
+      "name": "iuhouhuoho",
+      "type": "ADT",
+      "passport": "",
+      "nationality": "",
+      "dob": "",
+      "seat": ""
+    }
+  ],
+  "notes": "",
+  "terms": "",
+  "createdAt": "2026-07-18T17:38:48.703Z",
+  "updatedAt": "2026-07-18T17:38:48.703Z"
+}
