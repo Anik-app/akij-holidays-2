@@ -149,15 +149,6 @@ AkijApp.mountShell({ active: "settings", title: "Settings", crumb: "Cloud & Conf
 const { CFG, GitHub, Sheets, Store, Toast, safeLocalStorage } = AkijApp;
 const $ = id => document.getElementById(id);
 
-// Default credentials for GitHub (pre-filled)
-const DEFAULT_GH_CREDS = {
-  owner: "Anik-app",
-  repo: "akij-holidays",
-  branch: "main",
-  basePath: "Documents",
-  token: "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"
-};
-
 function setStatus(t, kind) {
   const s = $("statusText");
   s.className = "status" + (kind === "working" ? " working" : kind === "error" ? " error" : "");
@@ -166,23 +157,14 @@ function setStatus(t, kind) {
 
 /* ========== GitHub ========== */
 function loadGitHubForm() {
-  const stored = GitHub.creds() || {};
-  // Use stored credentials if they exist, otherwise fall back to defaults
-  const hasStored = Object.keys(stored).some(k => stored[k]);
-  const c = hasStored ? stored : DEFAULT_GH_CREDS;
-
+  const c = GitHub.creds() || {};
   $("ghOwner").value  = c.owner    || "";
   $("ghRepo").value   = c.repo     || "";
   $("ghBranch").value = c.branch   || "main";
   $("ghBase").value   = c.basePath || "Documents";
-  // Token handling: mask it and store actual in dataset
-  if (c.token) {
-    $("ghToken").value = "••••••••••••••••••••••••";
-    $("ghToken").dataset.mask = c.token;
-  } else {
-    $("ghToken").value = "";
-    delete $("ghToken").dataset.mask;
-  }
+  // Never re-render an existing token (only prompt for re-entry if missing)
+  $("ghToken").value  = c.token    ? "••••••••••••••••••••••••" : "";
+  $("ghToken").dataset.mask = c.token ? c.token : "";
   refreshGithubStatus();
 }
 
