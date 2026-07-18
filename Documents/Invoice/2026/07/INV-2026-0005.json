@@ -6,34 +6,46 @@
   "invoiceDate": "2026-07-17",
   "dueDate": "2026-07-24",
   "status": "Draft",
+  "headerAddress": "",
+  "headerPhone": "",
   "headerEmail": "",
   "headerWebsite": "",
-  "clientName": "engonaerio",
-  "clientCompany": "",
+  "clientName": "Test Guest",
+  "clientCompany": "Test Company",
   "clientAddress": "",
   "clientCity": "",
   "clientEmail": "",
   "clientPhone": "",
   "items": [
     {
-      "description": "dnglnadg",
+      "description": "Test Item",
+      "quantity": 5,
+      "rate": 3000,
+      "amount": 15000
+    },
+    {
+      "description": "Test 2",
       "quantity": 1,
-      "rate": 3443330,
-      "amount": 3443330
+      "rate": 5000,
+      "amount": 5000
     }
   ],
-  "subtotal": 3443330,
-  "taxRate": 0,
-  "taxAmount": 0,
-  "discount": 0,
-  "shipping": 0,
-  "total": 3443330,
-  "bankName": "BRAC Bank PLC",
-  "accountName": "AKIJ LOGISTICS LTD",
-  "accountNumber": "2063890780001",
-  "branchName": "Gulshan",
-  "routingNumber": "060261726",
+  "subtotal": 20000,
+  "taxRate": 10,
+  "taxAmount": 1900,
+  "discount": 1000,
+  "shipping": 1100,
+  "total": 22000,
+  "banks": [
+    {
+      "bankName": "BRAC Bank PLC",
+      "accountName": "AKIJ LOGISTICS LTD",
+      "accountNumber": "2063890780001",
+      "branchName": "Gulshan",
+      "routingNumber": "060261726"
+    }
+  ],
   "notes": "",
   "createdAt": "2026-07-17T19:15:08.514Z",
-  "updatedAt": "2026-07-17T19:39:31.982Z"
+  "updatedAt": "2026-07-18T16:22:58.066Z"
 }
